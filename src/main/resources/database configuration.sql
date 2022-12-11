@@ -90,7 +90,17 @@ CREATE TABLE IF NOT EXISTS borrower
 
 
 -- Dummy Data
--- INSERT INTO student (student_id, student_address, class_id, first_name, last_name, middle_name, email, phone) VALUES (10113331, 1, 308, "Vince Angelo", "Batecan", "Olarte", "vbatecan@gmail.com", 09998216556);
+INSERT INTO student (student_id, student_address, class_id, first_name, last_name, middle_name, email, phone)
+VALUES (10113331, 1, 308, "Vince Angelo", "Batecan", "Olarte", "vbatecan@gmail.com", 09998216556);
+
+INSERT INTO genres (genre)
+VALUES ("Fantasy");
+
+INSERT INTO authors (first_name, last_name, middle_name)
+VALUES ("Vince Angelo", "Batecan", "Olarte");
+
+INSERT INTO books (book_genre, author, title, description, language, total_pages, published_date, copies)
+VALUES (1, 1, "Introduction to Programming", "The Introduction to Programming", "English", 100, "2006-11-2", 100);
 
 INSERT INTO employees (employee_id, address_id, first_name, last_name, middle_name, email, phone, job_title, hire_date,
                        salary)
