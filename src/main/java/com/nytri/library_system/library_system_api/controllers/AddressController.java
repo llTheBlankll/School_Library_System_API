@@ -39,7 +39,7 @@ public class AddressController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteAddressById(@RequestParam int addressId) {
+    public void deleteAddressById(@RequestParam("id") int addressId) {
         addressRepository.deleteById(addressId);
     }
 
