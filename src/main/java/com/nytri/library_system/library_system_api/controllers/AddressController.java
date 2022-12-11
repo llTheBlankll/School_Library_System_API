@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @CrossOrigin
-@RequestMapping("/api/manager/addresses")
+@RequestMapping("/api/administrator/addresses")
 @RestController
 public class AddressController {
 
