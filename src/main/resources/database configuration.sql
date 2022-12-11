@@ -47,13 +47,13 @@ CREATE TABLE IF NOT EXISTS classrooms
     FOREIGN KEY (adviser) REFERENCES employees (employee_id)
 );
 
-CREATE TABLE genres
+CREATE TABLE IF NOT EXISTS genres
 (
     genre_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     genre    VARCHAR(255)
 );
 
-CREATE TABLE authors
+CREATE TABLE IF NOT EXISTS authors
 (
     author_id   INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     first_name  VARCHAR(48),
@@ -61,7 +61,7 @@ CREATE TABLE authors
     middle_name VARCHAR(48)
 );
 
-CREATE TABLE books
+CREATE TABLE IF NOT EXISTS books
 (
     book_id        INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     book_genre     INT UNIQUE,
@@ -75,7 +75,7 @@ CREATE TABLE books
     FOREIGN KEY (author) REFERENCES authors (author_id)
 );
 
-CREATE TABLE borrower
+CREATE TABLE IF NOT EXISTS borrower
 (
     borrower_id   INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     student       INT UNIQUE,
