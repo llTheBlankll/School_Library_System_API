@@ -15,9 +15,9 @@ public class Borrower {
     @JoinColumn(name = "student")
     private Student student;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "book")
-    private Book book;
+    private Book bookBorrowed;
 
     @Column(name = "borrowed_from")
     private LocalDate borrowedFrom;
@@ -30,6 +30,14 @@ public class Borrower {
 
     @Column(name = "issued_by")
     private Integer issuedBy;
+
+    public Book getBookBorrowed() {
+        return bookBorrowed;
+    }
+
+    public void setBookBorrowed(Book bookBorrowed) {
+        this.bookBorrowed = bookBorrowed;
+    }
 
     public Integer getId() {
         return id;
@@ -45,14 +53,6 @@ public class Borrower {
 
     public void setStudent(Student student) {
         this.student = student;
-    }
-
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
     }
 
     public LocalDate getBorrowedFrom() {

@@ -1,9 +1,6 @@
 package com.nytri.library_system.library_system_api.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "genres")
@@ -14,6 +11,17 @@ public class Genre {
 
     @Column(name = "genre")
     private String genre;
+
+    @OneToOne(mappedBy = "bookGenre")
+    private Book bookGenre;
+
+    public Book getBookGenre() {
+        return bookGenre;
+    }
+
+    public void setBookGenre(Book bookGenre) {
+        this.bookGenre = bookGenre;
+    }
 
     public Integer getId() {
         return id;

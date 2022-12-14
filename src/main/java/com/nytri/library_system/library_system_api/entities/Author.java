@@ -1,9 +1,8 @@
 package com.nytri.library_system.library_system_api.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "authors")
@@ -20,6 +19,9 @@ public class Author {
 
     @Column(name = "middle_name", length = 48)
     private String middleName;
+
+    @OneToMany(mappedBy = "bookAuthor")
+    private List<Book> booksWritten;
 
     public Integer getId() {
         return id;

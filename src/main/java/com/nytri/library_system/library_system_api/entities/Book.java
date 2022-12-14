@@ -11,15 +11,39 @@ public class Book {
     @Column(name = "book_id", nullable = false)
     private Integer id;
 
-    @Column(name = "book_genre")
-    private Integer bookGenre;
+    @OneToOne
+    @JoinColumn(name = "book_genre")
+    private Genre bookGenre;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "author")
-    private Author author;
+    private Author bookAuthor;
 
     @Column(name = "title", nullable = false)
     private String title;
+
+    @OneToOne(mappedBy = "bookBorrowed")
+    private Borrower borrower;
+
+    public void setBookGenre(Genre bookGenre) {
+        this.bookGenre = bookGenre;
+    }
+
+    public Author getBookAuthor() {
+        return bookAuthor;
+    }
+
+    public void setBookAuthor(Author bookAuthor) {
+        this.bookAuthor = bookAuthor;
+    }
+
+    public Borrower getBorrower() {
+        return borrower;
+    }
+
+    public void setBorrower(Borrower borrower) {
+        this.borrower = borrower;
+    }
 
     @Lob
     @Column(name = "description")
@@ -43,22 +67,6 @@ public class Book {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getBookGenre() {
-        return bookGenre;
-    }
-
-    public void setBookGenre(Integer bookGenre) {
-        this.bookGenre = bookGenre;
-    }
-
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
     }
 
     public String getTitle() {
