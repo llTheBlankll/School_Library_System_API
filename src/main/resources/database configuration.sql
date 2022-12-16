@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS school_library_system;
 
 use school_library_system;
 
-CREATE TABLE IF NOT EXISTS student
+CREATE TABLE IF NOT EXISTS students
 (
     student_id      INT PRIMARY KEY NOT NULL,
     student_address INT UNIQUE,
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS addresses
     region     VARCHAR(48),
     street     VARCHAR(48),
     postcode   SMALLINT,
-    FOREIGN KEY (student_id) REFERENCES student (student_id)
+    FOREIGN KEY (student_id) REFERENCES students (student_id)
 );
 
 -- Table for Employees (Teachers, Utility Personnel, etc...)

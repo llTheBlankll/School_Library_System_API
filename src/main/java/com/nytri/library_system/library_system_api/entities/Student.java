@@ -3,7 +3,7 @@ package com.nytri.library_system.library_system_api.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "student")
+@Table(name = "students")
 public class Student {
     @Id
     @Column(name = "student_id", nullable = false)
