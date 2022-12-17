@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RequestMapping("/api/librarian/student")
+@RequestMapping({"/api/administrator/students", "/api/librarian/students"})
 @CrossOrigin
 @RestController
 public class StudentController {

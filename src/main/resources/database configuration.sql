@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS addresses
     student_id INT UNIQUE,
     region     VARCHAR(48),
     street     VARCHAR(48),
-    postcode   SMALLINT,
+    postcode   INT,
     FOREIGN KEY (student_id) REFERENCES students (student_id)
 );
 

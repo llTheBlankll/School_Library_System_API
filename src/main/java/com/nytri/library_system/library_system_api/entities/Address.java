@@ -17,7 +17,7 @@ public class Address {
     private String street;
 
     @Column(name = "postcode")
-    private Short postcode;
+    private Integer postcode;
 
     @OneToOne(mappedBy = "studentAddress")
     private Student student_address;
@@ -57,11 +57,11 @@ public class Address {
         this.street = street;
     }
 
-    public Short getPostcode() {
+    public Integer getPostcode() {
         return postcode;
     }
 
-    public void setPostcode(Short postcode) {
+    public void setPostcode(Integer postcode) {
         this.postcode = postcode;
     }
 

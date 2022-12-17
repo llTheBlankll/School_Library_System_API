@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/api/librarian/genre")
+@RequestMapping("/api/librarian/genres")
 public class GenreController {
 
     private final GenreRepository genreRepository;
