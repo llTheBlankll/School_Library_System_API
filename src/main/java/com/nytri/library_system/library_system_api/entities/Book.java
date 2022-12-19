@@ -11,7 +11,7 @@ public class Book {
     @Column(name = "book_id", nullable = false)
     private Integer id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "book_genre")
     private Genre bookGenre;
 

@@ -19,10 +19,10 @@ public class Address {
     @Column(name = "postcode")
     private Integer postcode;
 
-    @OneToOne(mappedBy = "studentAddress")
+    @OneToOne(mappedBy = "studentAddress", cascade = CascadeType.MERGE)
     private Student student_address;
 
-    @OneToOne(mappedBy = "employeeAddress")
+    @OneToOne(mappedBy = "employeeAddress", cascade = CascadeType.MERGE)
     private Employee employee_address;
 
     public void setEmployee_address(Employee employee_address) {

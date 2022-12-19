@@ -11,7 +11,7 @@ public class Employee {
     @Column(name = "employee_id", nullable = false)
     private Integer id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, targetEntity = Address.class)
     @JoinColumn(name = "address_id", referencedColumnName = "address_id")
     private Address employeeAddress;
 

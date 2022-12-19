@@ -20,7 +20,7 @@ public class Author {
     @Column(name = "middle_name", length = 48)
     private String middleName;
 
-    @OneToMany(mappedBy = "bookAuthor")
+    @OneToMany(mappedBy = "bookAuthor", cascade = CascadeType.ALL)
     private List<Book> booksWritten;
 
     public Integer getId() {
