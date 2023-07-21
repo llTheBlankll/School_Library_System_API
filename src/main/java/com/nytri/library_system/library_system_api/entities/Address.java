@@ -17,12 +17,12 @@ public class Address {
     private String street;
 
     @Column(name = "postcode")
-    private Short postcode;
+    private Integer postcode;
 
-    @OneToOne(mappedBy = "studentAddress")
+    @OneToOne(mappedBy = "studentAddress", cascade = CascadeType.MERGE)
     private Student student_address;
 
-    @OneToOne(mappedBy = "employeeAddress")
+    @OneToOne(mappedBy = "employeeAddress", cascade = CascadeType.MERGE)
     private Employee employee_address;
 
     public void setEmployee_address(Employee employee_address) {
@@ -57,11 +57,11 @@ public class Address {
         this.street = street;
     }
 
-    public Short getPostcode() {
+    public Integer getPostcode() {
         return postcode;
     }
 
-    public void setPostcode(Short postcode) {
+    public void setPostcode(Integer postcode) {
         this.postcode = postcode;
     }
 

@@ -16,8 +16,15 @@ public class Classroom {
     @JoinColumn(name = "adviser")
     private Employee adviser;
 
+    @OneToOne(mappedBy = "classroom")
+    private Student studentClassroom;
+
     public Employee getAdviser() {
         return adviser;
+    }
+
+    public void setStudentClassroom(Student studentClassroom) {
+        this.studentClassroom = studentClassroom;
     }
 
     public void setAdviser(Employee adviser) {

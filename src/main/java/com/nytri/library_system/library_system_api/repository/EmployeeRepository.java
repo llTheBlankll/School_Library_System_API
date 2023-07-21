@@ -4,12 +4,14 @@ import com.nytri.library_system.library_system_api.entities.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
-    Employee findByFirstNameContains (String firstName );
-    Employee findByLastNameContains ( String lastName );
-    Employee findByMiddleNameContains (String middleName );
-    Employee findByEmailContains ( String email );
+    List<Employee> findByFirstNameContains (String firstName );
+    List<Employee> findByLastNameContains ( String lastName );
+    List<Employee> findByMiddleNameContains (String middleName );
+    List<Employee> findByEmailContains ( String email );
     Employee findByJobTitle ( String jobTitle );
 }

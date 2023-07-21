@@ -3,7 +3,7 @@ package com.nytri.library_system.library_system_api.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "student")
+@Table(name = "students")
 public class Student {
     @Id
     @Column(name = "student_id", nullable = false)
@@ -13,16 +13,9 @@ public class Student {
     @JoinColumn(name = "student_address")
     private Address studentAddress;
 
-    public Address getStudentAddress() {
-        return studentAddress;
-    }
-
-    public void setStudentAddress(Address studentAddress) {
-        this.studentAddress = studentAddress;
-    }
-
-    @Column(name = "class_id")
-    private Integer classId;
+    @OneToOne
+    @JoinColumn(name = "classroom_id")
+    private Classroom classroom;
 
     @Column(name = "first_name", length = 48)
     private String firstName;
@@ -47,12 +40,20 @@ public class Student {
         this.id = id;
     }
 
-    public Integer getClassId() {
-        return classId;
+    public Address getStudentAddress() {
+        return studentAddress;
     }
 
-    public void setClassId(Integer classId) {
-        this.classId = classId;
+    public void setStudentAddress(Address studentAddress) {
+        this.studentAddress = studentAddress;
+    }
+
+    public Classroom getClassroom() {
+        return classroom;
+    }
+
+    public void setClassroom(Classroom classroom) {
+        this.classroom = classroom;
     }
 
     public String getFirstName() {

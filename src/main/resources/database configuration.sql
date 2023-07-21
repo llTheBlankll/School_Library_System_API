@@ -2,16 +2,18 @@ CREATE DATABASE IF NOT EXISTS school_library_system;
 
 use school_library_system;
 
-CREATE TABLE IF NOT EXISTS student
+CREATE TABLE IF NOT EXISTS students
 (
     student_id      INT PRIMARY KEY NOT NULL,
     student_address INT UNIQUE,
-    class_id        INT UNIQUE,
+    classroom_id        INT UNIQUE,
     first_name      VARCHAR(48),
     last_name       VARCHAR(48),
     middle_name     VARCHAR(48),
     email           VARCHAR(128),
-    phone           VARCHAR(24)
+    phone           VARCHAR(24),
+    FOREIGN KEY (student_address) REFERENCES addresses (student_id),
+    FOREIGN KEY (classroom_id) REFERENCES classrooms (classroom_id)
 );
 
 CREATE TABLE IF NOT EXISTS addresses
@@ -20,8 +22,8 @@ CREATE TABLE IF NOT EXISTS addresses
     student_id INT UNIQUE,
     region     VARCHAR(48),
     street     VARCHAR(48),
-    postcode   SMALLINT,
-    FOREIGN KEY (student_id) REFERENCES student (student_id)
+    postcode   INT,
+    FOREIGN KEY (student_id) REFERENCES students (student_id)
 );
 
 -- Table for Employees (Teachers, Utility Personnel, etc...)
@@ -47,13 +49,13 @@ CREATE TABLE IF NOT EXISTS classrooms
     FOREIGN KEY (adviser) REFERENCES employees (employee_id)
 );
 
-CREATE TABLE genres
+CREATE TABLE IF NOT EXISTS genres
 (
     genre_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     genre    VARCHAR(255)
 );
 
-CREATE TABLE authors
+CREATE TABLE IF NOT EXISTS authors
 (
     author_id   INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     first_name  VARCHAR(48),
@@ -61,7 +63,7 @@ CREATE TABLE authors
     middle_name VARCHAR(48)
 );
 
-CREATE TABLE books
+CREATE TABLE IF NOT EXISTS books
 (
     book_id        INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     book_genre     INT UNIQUE,
@@ -75,7 +77,7 @@ CREATE TABLE books
     FOREIGN KEY (author) REFERENCES authors (author_id)
 );
 
-CREATE TABLE borrower
+CREATE TABLE IF NOT EXISTS borrower
 (
     borrower_id   INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     student       INT UNIQUE,
@@ -90,7 +92,17 @@ CREATE TABLE borrower
 
 
 -- Dummy Data
--- INSERT INTO student (student_id, student_address, class_id, first_name, last_name, middle_name, email, phone) VALUES (10113331, 1, 308, "Vince Angelo", "Batecan", "Olarte", "vbatecan@gmail.com", 09998216556);
+INSERT INTO student (student_id, student_address, classroom_id, first_name, last_name, middle_name, email, phone)
+VALUES (10113331, 1, 308, "Vince Angelo", "Batecan", "Olarte", "vbatecan@gmail.com", 09998216556);
+
+INSERT INTO genres (genre)
+VALUES ("Fantasy");
+
+INSERT INTO authors (first_name, last_name, middle_name)
+VALUES ("Vince Angelo", "Batecan", "Olarte");
+
+INSERT INTO books (book_genre, author, title, description, language, total_pages, published_date, copies)
+VALUES (1, 1, "Introduction to Programming", "The Introduction to Programming", "English", 100, "2006-11-2", 100);
 
 INSERT INTO employees (employee_id, address_id, first_name, last_name, middle_name, email, phone, job_title, hire_date,
                        salary)

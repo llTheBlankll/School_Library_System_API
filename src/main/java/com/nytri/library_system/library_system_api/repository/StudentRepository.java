@@ -4,11 +4,12 @@ import com.nytri.library_system.library_system_api.entities.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Integer> {
 
     Student findByEmail ( String email );
-    Student findByFirstNameContains ( String firstName);
-    Student findByLastNameContains ( String lastName );
-    Student findByClassId ( int classId );
+    List<Student> findByFirstNameContains (String firstName);
+    List<Student> findByLastNameContains ( String lastName );
 }
