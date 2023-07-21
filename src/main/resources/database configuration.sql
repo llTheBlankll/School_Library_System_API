@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS borrower
 
 
 -- Dummy Data
-INSERT INTO student (student_id, student_address, classroom_id, first_name, last_name, middle_name, email, phone) VALUES (10113331, 1, 308, "Vince Angelo", "Batecan", "Olarte", "vbatecan@gmail.com", 09998216556);
+INSERT INTO student (student_id, student_address, class_id, first_name, last_name, middle_name, email, phone) VALUES (10113331, 1, 308, "Vince Angelo", "Batecan", "Olarte", "vbatecan@gmail.com", 09998216556);
 
 INSERT INTO genres (genre)
 VALUES ("Fantasy");
