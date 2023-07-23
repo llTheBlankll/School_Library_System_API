@@ -92,8 +92,7 @@ CREATE TABLE IF NOT EXISTS borrower
 
 
 -- Dummy Data
-INSERT INTO student (student_id, student_address, classroom_id, first_name, last_name, middle_name, email, phone)
-VALUES (10113331, 1, 308, "Vince Angelo", "Batecan", "Olarte", "vbatecan@gmail.com", 09998216556);
+INSERT INTO student (student_id, student_address, class_id, first_name, last_name, middle_name, email, phone) VALUES (10113331, 1, 308, "Vince Angelo", "Batecan", "Olarte", "vbatecan@gmail.com", 09998216556);
 
 INSERT INTO genres (genre)
 VALUES ("Fantasy");
@@ -108,7 +107,7 @@ INSERT INTO employees (employee_id, address_id, first_name, last_name, middle_na
                        salary)
 VALUES (125, 1, "Mary Grace", "Yap", "", "marygrace.yap@gmail.com", "Unknown", "Teacher", "2020-12-15", 20000);
 
-INSERT INTO addresses (student_id, region, street, postcode)
+INSERT INTO addresses (address_student_id, region, street, postcode)
 VALUES (10113331, "National Capital Region", "Fortune Drive, Canumay East", 1447);
 
 INSERT INTO classrooms (classroom_id, adviser, section_name)
