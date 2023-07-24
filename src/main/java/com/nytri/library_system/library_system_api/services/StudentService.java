@@ -7,17 +7,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import java.util.List;
 
 @Service
 public class StudentService implements IStudent {
 
-    @Autowired
     private final StudentRepository studentRepository;
     private final Logger logger = LoggerFactory.getLogger(StudentService.class);
 
+    @Autowired
     public StudentService(StudentRepository studentRepository) {
+        Assert.notNull(studentRepository, "StudentRepository must not be null");
         this.studentRepository = studentRepository;
     }
 
