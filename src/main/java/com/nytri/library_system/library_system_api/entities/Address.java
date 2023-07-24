@@ -19,6 +19,11 @@ public class Address {
     @Column(name = "postcode")
     private Integer postcode;
 
+
+    public Address() {
+
+    }
+
     @OneToOne(mappedBy = "studentAddress", cascade = CascadeType.MERGE)
     private Student student_address;
 
@@ -65,4 +70,15 @@ public class Address {
         this.postcode = postcode;
     }
 
+    public boolean isValid() {
+        if (this.id <= 0) {
+            return false;
+        }
+
+        if (this.getRegion().isEmpty()) {
+            return false;
+        }
+
+        return !this.getStreet().isEmpty();
+    }
 }
