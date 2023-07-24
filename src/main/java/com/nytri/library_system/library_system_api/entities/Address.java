@@ -19,20 +19,16 @@ public class Address {
     @Column(name = "postcode")
     private Integer postcode;
 
+
+    public Address() {
+
+    }
+
     @OneToOne(mappedBy = "studentAddress", cascade = CascadeType.MERGE)
     private Student student_address;
 
     @OneToOne(mappedBy = "employeeAddress", cascade = CascadeType.MERGE)
     private Employee employee_address;
-
-    public Address(Integer id, String region, String street, Integer postcode, Student student_address, Employee employee_address) {
-        this.id = id;
-        this.region = region;
-        this.street = street;
-        this.postcode = postcode;
-        this.student_address = student_address;
-        this.employee_address = employee_address;
-    }
 
     public void setEmployee_address(Employee employee_address) {
         this.employee_address = employee_address;
@@ -79,14 +75,10 @@ public class Address {
             return false;
         }
 
-        if (this.student_address == null && this.employee_address == null) {
+        if (this.getRegion().isEmpty()) {
             return false;
         }
 
-        if (this.region.isEmpty()) {
-            return false;
-        }
-
-        return !this.street.isEmpty();
+        return !this.getStreet().isEmpty();
     }
 }
