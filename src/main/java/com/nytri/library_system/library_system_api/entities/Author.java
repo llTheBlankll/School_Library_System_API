@@ -22,6 +22,17 @@ public class Author {
 
     @OneToMany(mappedBy = "bookAuthor", cascade = CascadeType.ALL)
     private List<Book> booksWritten;
+    public Author() {
+
+    }
+
+    public Author(Integer id, String firstName, String lastName, String middleName, List<Book> booksWritten) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.middleName = middleName;
+        this.booksWritten = booksWritten;
+    }
 
     public Integer getId() {
         return id;
@@ -55,4 +66,15 @@ public class Author {
         this.middleName = middleName;
     }
 
+    public boolean isValid() {
+        if (this.id == 0) {
+            return false;
+        }
+
+        if (this.lastName.isEmpty()) {
+            return false;
+        }
+
+        return true;
+    }
 }
