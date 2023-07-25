@@ -1,3 +1,9 @@
+/*
+IMPORTANT NOTE:
+Classrooms and Addresses data must be filled in before creating new table students data.
+This is because of the FOREIGN KEY.
+*/
+
 CREATE DATABASE IF NOT EXISTS school_library_system;
 
 use school_library_system;
@@ -90,6 +96,9 @@ CREATE TABLE IF NOT EXISTS borrower
     FOREIGN KEY (book) REFERENCES books (book_id)
 );
 
+INSERT INTO classrooms (classroom_id, adviser, section_name)
+VALUES (308, 125, "Purity");
+
 INSERT INTO addresses (region, street, postcode)
 VALUES ("National Capital Region", "Fortune Drive, Canumay East", 1447);
 
@@ -108,6 +117,3 @@ VALUES (1, 1, "Introduction to Programming", "The Introduction to Programming", 
 INSERT INTO employees (employee_id, address_id, first_name, last_name, middle_name, email, phone, job_title, hire_date,
                        salary)
 VALUES (125, 1, "Mary Grace", "Yap", "", "marygrace.yap@gmail.com", "Unknown", "Teacher", "2020-12-15", 20000);
-
-INSERT INTO classrooms (classroom_id, adviser, section_name)
-VALUES (308, 125, "Purity");
