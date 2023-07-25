@@ -49,39 +49,6 @@ CREATE TABLE IF NOT EXISTS students
     FOREIGN KEY (classroom_id) REFERENCES classrooms (classroom_id)
 );
 
-CREATE TABLE IF NOT EXISTS addresses
-(
-    address_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    student_id INT UNIQUE,
-    region     VARCHAR(48),
-    street     VARCHAR(48),
-    postcode   INT,
-    FOREIGN KEY (student_id) REFERENCES students (student_id)
-);
-
--- Table for Employees (Teachers, Utility Personnel, etc...)
-CREATE TABLE IF NOT EXISTS employees
-(
-    employee_id INT PRIMARY KEY NOT NULL,
-    address_id  INT UNIQUE,
-    first_name  VARCHAR(48),
-    last_name   VARCHAR(48),
-    middle_name VARCHAR(48),
-    email       VARCHAR(128),
-    phone       VARCHAR(24),
-    job_title   VARCHAR(48),
-    hire_date   DATE,
-    salary      INT
-);
-
-CREATE TABLE IF NOT EXISTS classrooms
-(
-    classroom_id INT PRIMARY KEY NOT NULL,
-    adviser      INT UNIQUE,
-    section_name VARCHAR(48),
-    FOREIGN KEY (adviser) REFERENCES employees (employee_id)
-);
-
 CREATE TABLE IF NOT EXISTS genres
 (
     genre_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
