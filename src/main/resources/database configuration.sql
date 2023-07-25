@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS students
     middle_name     VARCHAR(48),
     email           VARCHAR(128),
     phone           VARCHAR(24),
-    FOREIGN KEY (student_address) REFERENCES addresses (student_id),
+    FOREIGN KEY (student_address) REFERENCES addresses (address_id),
     FOREIGN KEY (classroom_id) REFERENCES classrooms (classroom_id)
 );
 
