@@ -23,7 +23,7 @@ public class StudentService implements IStudent {
         this.studentRepository = studentRepository;
     }
 
-    private boolean validateStudent(Student student) {
+    public boolean validateStudent(Student student) {
         return !student.getLastName().isEmpty();
     }
 
@@ -52,6 +52,11 @@ public class StudentService implements IStudent {
         }
 
         logger.info("Student was not added with an ID of " + student.getId());
+    }
+
+    @Override
+    public Student getStudentById(Integer student_id) {
+        return studentRepository.findById(student_id).orElse(new Student());
     }
 
     @Override
