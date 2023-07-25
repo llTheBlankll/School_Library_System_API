@@ -2,8 +2,6 @@ package com.nytri.library_system.library_system_api.services;
 
 import com.nytri.library_system.library_system_api.entities.Classroom;
 import com.nytri.library_system.library_system_api.interfaces.IClassroom;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.nytri.library_system.library_system_api.repository.ClassroomRepository;
 import org.springframework.stereotype.Service;
@@ -14,9 +12,7 @@ import java.util.List;
 @Service
 public class ClassroomService implements IClassroom {
 
-    private final Logger logger = LoggerFactory.getLogger(ClassroomService.class);
     private final ClassroomRepository classroomRepository;
-
     @Autowired
     public ClassroomService(ClassroomRepository classroomRepository) {
         Assert.notNull(classroomRepository, "ClassroomRepository must not be null");

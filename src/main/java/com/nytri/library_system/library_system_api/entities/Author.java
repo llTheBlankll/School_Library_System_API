@@ -71,10 +71,6 @@ public class Author {
             return false;
         }
 
-        if (this.lastName.isEmpty()) {
-            return false;
-        }
-
-        return true;
+        return !this.lastName.isEmpty();
     }
 }
