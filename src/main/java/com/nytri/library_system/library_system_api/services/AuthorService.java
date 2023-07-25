@@ -36,13 +36,11 @@ public class AuthorService implements IAuthor {
     @Override
     public void deleteAuthor(Author author) {
         authorRepository.delete(author);
-        logger.info("Author was deleted with an ID of " + author.getId());
     }
 
     @Override
     public void deleteAuthorById(Integer author_id) {
         authorRepository.deleteById(author_id);
-        logger.info("Author was deleted with an ID of " + author_id);
     }
 
     @Override
@@ -50,8 +48,6 @@ public class AuthorService implements IAuthor {
         if (this.process(author)) {
             authorRepository.save(author);
         }
-
-        logger.info("Author was not updated with an ID of " + author.getId());
     }
 
     @Override
