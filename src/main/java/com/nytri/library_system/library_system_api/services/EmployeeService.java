@@ -14,7 +14,6 @@ import java.util.List;
 @Service
 public class EmployeeService implements IEmployee {
 
-    private final Logger logger = LoggerFactory.getLogger(EmployeeService.class);
     private final EmployeeRepository employeeRepository;
 
     @Autowired
@@ -40,7 +39,6 @@ public class EmployeeService implements IEmployee {
         if (this.process(employee)) {
             employeeRepository.save(employee);
         }
-        logger.info("Employee was not added with an ID of " + employee.getId());
     }
 
     @Override
@@ -48,18 +46,21 @@ public class EmployeeService implements IEmployee {
         if (this.process(employee)) {
             employeeRepository.save(employee);
         }
-        logger.info("Employee was not updated with an ID of " + employee.getId());
     }
 
     @Override
     public void deleteEmployee(Employee employee) {
         employeeRepository.delete(employee);
-        logger.info("Employee was deleted with an ID of " + employee.getId());
     }
 
     @Override
     public Employee getEmployeeById(Integer employee_id) {
         return employeeRepository.findById(employee_id).orElse(null);
+    }
+
+    @Override
+    public void deleteEmployeeById(Integer employeeId) {
+        employeeRepository.deleteById(employeeId);
     }
 
     @Override
