@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### IntelliJ IDEA Plugins ###
+.fastRequest
+
+### JetBrains Fleet ###
+.fleet
