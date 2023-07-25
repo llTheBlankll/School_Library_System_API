@@ -23,7 +23,7 @@ public class BookService implements IBook {
         this.bookRepository = bookRepository;
     }
 
-    private boolean process(Book book) {
+    public boolean process(Book book) {
         // Returns true if it is Empty, false otherwise.
         return book.getTitle().isEmpty() && !book.getBookAuthor().isValid();
     }

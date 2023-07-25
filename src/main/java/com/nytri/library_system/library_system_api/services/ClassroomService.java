@@ -23,7 +23,7 @@ public class ClassroomService implements IClassroom {
         this.classroomRepository = classroomRepository;
     }
 
-    private boolean process(Classroom classroom) {
+    public boolean process(Classroom classroom) {
         // Returns true if it is Empty, false otherwise.
         return classroom.getSectionName().isEmpty();
     }

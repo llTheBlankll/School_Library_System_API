@@ -23,7 +23,7 @@ public class EmployeeService implements IEmployee {
         this.employeeRepository = employeeRepository;
     }
 
-    private boolean process(Employee employee) {
+    public boolean process(Employee employee) {
         if (employee.getJobTitle().isEmpty()) {
             return false;
         }

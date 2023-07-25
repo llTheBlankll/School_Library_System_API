@@ -23,7 +23,7 @@ public class BorrowerService implements IBorrower {
         this.borrowerRepository = borrowerRepository;
     }
 
-    private boolean process(Borrower borrower) {
+     public boolean process(Borrower borrower) {
         if (borrower.getStudent() == null) {
             return false;
         }

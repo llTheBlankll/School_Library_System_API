@@ -22,7 +22,7 @@ public class AuthorService implements IAuthor {
         this.authorRepository = authorRepository;
     }
 
-    private boolean process(Author author) {
+     public boolean process(Author author) {
         // Returns true if it is Empty, false otherwise.
         return !author.getFirstName().isEmpty() && !author.getLastName().isEmpty();
     }

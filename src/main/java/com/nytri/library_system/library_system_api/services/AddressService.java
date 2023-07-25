@@ -23,7 +23,7 @@ public class AddressService implements IAddress {
         this.addressRepository = addressRepository;
     }
 
-    private boolean process(Address address) {
+     public boolean process(Address address) {
         // Returns true if it is Empty, false otherwise.
         return !address.getStreet().isEmpty() && !address.getRegion().isEmpty();
     }

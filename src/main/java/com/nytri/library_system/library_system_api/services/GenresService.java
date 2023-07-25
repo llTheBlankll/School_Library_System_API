@@ -23,7 +23,7 @@ public class GenresService implements IGenre {
         this.genreRepository = genreRepository;
     }
 
-    private boolean process(Genre genre) {
+    public boolean process(Genre genre) {
         // Returns true if it is Empty, false otherwise.
         return !genre.getGenre().isEmpty();
     }
