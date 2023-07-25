@@ -119,13 +119,13 @@ CREATE TABLE IF NOT EXISTS borrower
     borrowed_to   DATE,
     return_date   DATE,
     issued_by     INT UNIQUE, -- Employee
-    FOREIGN KEY (student) REFERENCES student (student_id),
+    FOREIGN KEY (student) REFERENCES students (student_id),
     FOREIGN KEY (book) REFERENCES books (book_id)
 );
 
 
 -- Dummy Data
-INSERT INTO student (student_id, student_address, class_id, first_name, last_name, middle_name, email, phone) VALUES (10113331, 1, 308, "Vince Angelo", "Batecan", "Olarte", "vbatecan@gmail.com", 09998216556);
+INSERT INTO students (student_id, student_address, classroom_id, first_name, last_name, middle_name, email, phone) VALUES (10113331, 1, 308, "Vince Angelo", "Batecan", "Olarte", "vbatecan@gmail.com", 09998216556);
 
 INSERT INTO genres (genre)
 VALUES ("Fantasy");
