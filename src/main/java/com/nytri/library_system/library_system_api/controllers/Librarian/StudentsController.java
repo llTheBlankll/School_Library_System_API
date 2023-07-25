@@ -1,4 +1,4 @@
-package com.nytri.library_system.library_system_api.controllers;
+package com.nytri.library_system.library_system_api.controllers.Librarian;
 
 import com.nytri.library_system.library_system_api.entities.Student;
 import com.nytri.library_system.library_system_api.services.StudentService;
