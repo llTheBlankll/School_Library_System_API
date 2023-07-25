@@ -2,6 +2,39 @@ CREATE DATABASE IF NOT EXISTS school_library_system;
 
 use school_library_system;
 
+-- Table for Employees (Teachers, Utility Personnel, etc...)
+CREATE TABLE IF NOT EXISTS employees
+(
+    employee_id INT PRIMARY KEY NOT NULL,
+    address_id  INT UNIQUE,
+    first_name  VARCHAR(48),
+    last_name   VARCHAR(48),
+    middle_name VARCHAR(48),
+    email       VARCHAR(128),
+    phone       VARCHAR(24),
+    job_title   VARCHAR(48),
+    hire_date   DATE,
+    salary      INT
+);
+
+CREATE TABLE IF NOT EXISTS addresses
+(
+    address_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    region     VARCHAR(48),
+    street     VARCHAR(48),
+    city       VARCHAR(48),
+    country    VARCHAR(48),
+    postcode   INT
+);
+
+CREATE TABLE IF NOT EXISTS classrooms
+(
+    classroom_id INT PRIMARY KEY NOT NULL,
+    adviser      INT UNIQUE,
+    section_name VARCHAR(48),
+    FOREIGN KEY (adviser) REFERENCES employees (employee_id)
+);
+
 CREATE TABLE IF NOT EXISTS students
 (
     student_id      INT PRIMARY KEY NOT NULL,
