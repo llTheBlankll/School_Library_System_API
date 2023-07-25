@@ -43,13 +43,15 @@ public class WebSecurity {
                 .authorizeHttpRequests()
 
                 // * REQUEST MATCHERS
-                .requestMatchers("/api/administrator")
+                .requestMatchers("/api_v1/administrator")
                 .hasRole("Administrator")
                 .requestMatchers(HttpMethod.DELETE)
+                .hasRole("Administrator")
+                .requestMatchers("/api_v1/librarian")
                 .hasRole("Librarian")
                 .requestMatchers(HttpMethod.PUT)
                 .hasRole("Librarian")
-                .requestMatchers("/api/librarian")
+                .requestMatchers("/api_v1/librarian")
                 .hasRole("Librarian")
 
                 .anyRequest()

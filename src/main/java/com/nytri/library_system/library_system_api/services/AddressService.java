@@ -3,8 +3,6 @@ package com.nytri.library_system.library_system_api.services;
 import com.nytri.library_system.library_system_api.entities.Address;
 import com.nytri.library_system.library_system_api.interfaces.IAddress;
 import com.nytri.library_system.library_system_api.repository.AddressRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -14,7 +12,6 @@ import java.util.List;
 @Service
 public class AddressService implements IAddress {
 
-    private final Logger logger = LoggerFactory.getLogger(AddressService.class);
     private final AddressRepository addressRepository;
 
     @Autowired
@@ -23,7 +20,7 @@ public class AddressService implements IAddress {
         this.addressRepository = addressRepository;
     }
 
-    private boolean process(Address address) {
+     public boolean process(Address address) {
         // Returns true if it is Empty, false otherwise.
         return !address.getStreet().isEmpty() && !address.getRegion().isEmpty();
     }
@@ -33,8 +30,6 @@ public class AddressService implements IAddress {
         if (this.process(address)) {
             addressRepository.save(address);
         }
-
-        logger.info("Address was not added with an ID of " + address.getId());
     }
 
     @Override
@@ -42,14 +37,11 @@ public class AddressService implements IAddress {
         if (this.process(address)) {
             addressRepository.save(address);
         }
-
-        logger.info("Address was not updated with an ID of " + address.getId());
     }
 
     @Override
     public void deleteAddress(Address address) {
         addressRepository.delete(address);
-        logger.info("Address was deleted with an ID of " + address.getId());
     }
 
     @Override
