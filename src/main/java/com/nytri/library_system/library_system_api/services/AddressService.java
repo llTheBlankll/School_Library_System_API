@@ -14,7 +14,6 @@ import java.util.List;
 @Service
 public class AddressService implements IAddress {
 
-    private final Logger logger = LoggerFactory.getLogger(AddressService.class);
     private final AddressRepository addressRepository;
 
     @Autowired
@@ -33,8 +32,6 @@ public class AddressService implements IAddress {
         if (this.process(address)) {
             addressRepository.save(address);
         }
-
-        logger.info("Address was not added with an ID of " + address.getId());
     }
 
     @Override
@@ -42,14 +39,11 @@ public class AddressService implements IAddress {
         if (this.process(address)) {
             addressRepository.save(address);
         }
-
-        logger.info("Address was not updated with an ID of " + address.getId());
     }
 
     @Override
     public void deleteAddress(Address address) {
         addressRepository.delete(address);
-        logger.info("Address was deleted with an ID of " + address.getId());
     }
 
     @Override

@@ -14,7 +14,6 @@ import java.util.List;
 @Service
 public class BookService implements IBook {
 
-    private final Logger logger = LoggerFactory.getLogger(BookService.class);
     private final BookRepository bookRepository;
 
     @Autowired
@@ -33,20 +32,16 @@ public class BookService implements IBook {
         if (this.process(book)) {
             bookRepository.save(book);
         }
-
-        logger.info("Book was not added with an ID of " + book.getId());
     }
 
     @Override
     public void deleteBook(Book book) {
         bookRepository.delete(book);
-        logger.info("Book was deleted with an ID of " + book.getId());
     }
 
     @Override
     public void deleteBookById(Integer book_id) {
         bookRepository.deleteById(book_id);
-        logger.info("Book was deleted with an ID of " + book_id);
     }
 
     @Override
@@ -54,8 +49,6 @@ public class BookService implements IBook {
         if (this.process(book)) {
             bookRepository.save(book);
         }
-
-        logger.info("Book was not updated with an ID of " + book.getId());
     }
 
     @Override

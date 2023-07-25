@@ -15,7 +15,6 @@ import java.util.List;
 public class StudentService implements IStudent {
 
     private final StudentRepository studentRepository;
-    private final Logger logger = LoggerFactory.getLogger(StudentService.class);
 
     @Autowired
     public StudentService(StudentRepository studentRepository) {
@@ -33,15 +32,12 @@ public class StudentService implements IStudent {
         if (validateStudent(student)) {
             studentRepository.save(student);
         }
-
-        logger.info("Student was not updated with an ID of " + student.getId());
     }
 
     @Override
     public void deleteStudent(Integer student_id) {
         // If returns true, the data provided is valid.
         studentRepository.deleteById(student_id);
-        logger.info("Student was deleted with an ID of " + student_id);
     }
 
     @Override
@@ -50,8 +46,6 @@ public class StudentService implements IStudent {
         if (validateStudent(student)) {
             studentRepository.save(student);
         }
-
-        logger.info("Student was not added with an ID of " + student.getId());
     }
 
     @Override

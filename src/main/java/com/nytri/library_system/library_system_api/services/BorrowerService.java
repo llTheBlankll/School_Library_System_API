@@ -14,7 +14,6 @@ import java.util.List;
 @Service
 public class BorrowerService implements IBorrower {
 
-    private final Logger logger = LoggerFactory.getLogger(BorrowerService.class);
     private final BorrowerRepository borrowerRepository;
 
     @Autowired
@@ -36,19 +35,16 @@ public class BorrowerService implements IBorrower {
         if (this.process(Borrower)) {
             borrowerRepository.save(Borrower);
         }
-        logger.info("Borrower was not added with an ID of " + Borrower.getId());
     }
 
     @Override
     public void deleteBorrower(Borrower Borrower) {
         borrowerRepository.delete(Borrower);
-        logger.info("Borrower was deleted with an ID of " + Borrower.getId());
     }
 
     @Override
     public void deleteBorrowerById(Integer borrower_id) {
         borrowerRepository.deleteById(borrower_id);
-        logger.info("Borrower was deleted with an ID of " + borrower_id);
     }
 
     @Override
@@ -56,7 +52,6 @@ public class BorrowerService implements IBorrower {
         if (this.process(Borrower)) {
             borrowerRepository.save(Borrower);
         }
-        logger.info("Borrower was not updated with an ID of " + Borrower.getId());
     }
 
     @Override

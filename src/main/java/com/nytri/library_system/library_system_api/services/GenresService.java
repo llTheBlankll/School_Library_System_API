@@ -14,7 +14,6 @@ import java.util.List;
 @Service
 public class GenresService implements IGenre {
 
-    private final Logger logger = LoggerFactory.getLogger(GenresService.class);
     private final GenreRepository genreRepository;
 
     @Autowired
@@ -33,8 +32,6 @@ public class GenresService implements IGenre {
         if (this.process(genre)) {
             genreRepository.save(genre);
         }
-
-        logger.info("Genre was not added with an ID of " + genre.getId());
     }
 
     @Override
@@ -42,20 +39,16 @@ public class GenresService implements IGenre {
         if (this.process(genre)) {
             genreRepository.save(genre);
         }
-
-        logger.info("Genre was not updated with an ID of " + genre.getId());
     }
 
     @Override
     public void deleteGenre(Genre genre) {
         genreRepository.delete(genre);
-        logger.info("Genre was deleted with an ID of " + genre.getId());
     }
 
     @Override
     public void deleteGenreById(Integer genre_id) {
         genreRepository.deleteById(genre_id);
-        logger.info("Genre was deleted with an ID of " + genre_id);
     }
 
     @Override

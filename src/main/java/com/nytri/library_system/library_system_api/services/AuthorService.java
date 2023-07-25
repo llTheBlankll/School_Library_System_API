@@ -14,7 +14,6 @@ import java.util.List;
 @Service
 public class AuthorService implements IAuthor {
     private final AuthorRepository authorRepository;
-    private final Logger logger = LoggerFactory.getLogger(AuthorService.class);
 
     @Autowired
     public AuthorService(AuthorRepository authorRepository) {
@@ -32,8 +31,6 @@ public class AuthorService implements IAuthor {
         if (this.process(author)) {
             authorRepository.save(author);
         }
-
-        logger.info("Author was not added with an ID of " + author.getId());
     }
 
     @Override

@@ -34,7 +34,6 @@ public class ClassroomService implements IClassroom {
             classroomRepository.save(classroom);
         }
 
-        logger.info("Classroom was not added with an ID of " + classroom.getId());
     }
 
     @Override
@@ -42,15 +41,11 @@ public class ClassroomService implements IClassroom {
         if (this.process(classroom)) {
             classroomRepository.save(classroom);
         }
-
-        logger.info("Classroom was not updated with an ID of " + classroom.getId());
     }
 
     @Override
     public void deleteClassroom(Classroom classroom) {
         classroomRepository.delete(classroom);
-
-        logger.info("Classroom was deleted with an ID of " + classroom.getId());
     }
 
     @Override
