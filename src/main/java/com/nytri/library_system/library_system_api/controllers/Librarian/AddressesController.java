@@ -1,4 +1,4 @@
-package com.nytri.library_system.library_system_api.controllers.Administrator;
+package com.nytri.library_system.library_system_api.controllers.Librarian;
 
 import com.nytri.library_system.library_system_api.entities.Address;
 import com.nytri.library_system.library_system_api.services.AddressService;
