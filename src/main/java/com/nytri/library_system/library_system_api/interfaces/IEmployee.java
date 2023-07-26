@@ -10,6 +10,10 @@ public interface IEmployee {
     void deleteEmployee(Employee employee);
     void deleteEmployeeById(Integer employeeId);
     Employee getEmployeeById(Integer employee_id);
+    List<Employee> searchEmployeeByLastName(String lastName);
+    List<Employee> searchEmployeeByFirstName(String firstName);
+    List<Employee> searchEmployeeByMiddleName(String middleName);
+    List<Employee> searchEmployeeByJob(String position);
     List<Employee> getAllEmployees();
 
 }

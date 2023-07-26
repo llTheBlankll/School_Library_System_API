@@ -6,9 +6,12 @@ import java.util.List;
 public interface IAuthor {
     void addAuthor(Author author);
     void deleteAuthor(Author author);
-    void deleteAuthorById(Integer author_id);
+    void deleteAuthorById(Integer authorId);
     void updateAuthor(Author author);
-    Author getAuthorById(Integer author_id);
+    List<Author> searchAuthorByFirstName(String firstName);
+    List<Author> searchAuthorByLastName(String lastName);
+    List<Author> searchAuthorByMiddleName(String middleName);
+    Author getAuthorById(Integer authorId);
     List<Author> getAllAuthors();
 
 }
