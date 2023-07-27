@@ -11,9 +11,12 @@ public interface IBook {
     void deleteBookById(Integer book_id);
     void updateBook(Book book);
     List<Book> searchBookByTitle(String title);
-    List<Book> searchBookByAuthorName(String authorName);
+    List<Book> searchBookByAuthorLastName(String authorLastName);
+    List<Book> searchBookByAuthorMiddleName(String authorFirstName);
+    List<Book> searchBookByAuthorFirstName(String authorFirstName);
     List<Book> searchBookWithGenreName(String genreName);
     List<Book> searchBookByAuthor(Author author);
+    List<Book> searchBookByLanguage(String language);
     Book getBookById(Integer bookId);
     List<Book> getAllBooks();
 }
