@@ -9,5 +9,9 @@ import java.util.List;
 @Repository
 public interface AddressRepository extends JpaRepository<Address, Integer> {
 
-    List<Address> findByRegionContains(String region);
+    List<Address> findByRegionContains(String regionName);
+    List<Address> findByCountryContains(String countryName);
+    List<Address> findByCityContains(String cityName);
+    List<Address> findByStreetContains(String streetName);
+    List<Address> findByPostCodeContains(Integer postCode);
 }

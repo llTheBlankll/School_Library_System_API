@@ -53,4 +53,29 @@ public class AddressService implements IAddress {
     public List<Address> getAllAddresses() {
         return addressRepository.findAll();
     }
+
+    @Override
+    public List<Address> searchAddressByRegion(String regionName) {
+        return addressRepository.findByRegionContains(regionName);
+    }
+
+    @Override
+    public List<Address> searchAddressByStreet(String streetName) {
+        return addressRepository.findByStreetContains(streetName);
+    }
+
+    @Override
+    public List<Address> searchAddressByCity(String cityName) {
+        return addressRepository.findByCityContains(cityName);
+    }
+
+    @Override
+    public List<Address> searchAddressByCountry(String countryName) {
+        return addressRepository.findByCountryContains(countryName);
+    }
+
+    @Override
+    public List<Address> searchAddressByPostCode(Integer postCode) {
+        return addressRepository.findByPostCodeContains(postCode);
+    }
 }

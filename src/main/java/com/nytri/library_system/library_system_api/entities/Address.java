@@ -16,9 +16,14 @@ public class Address {
     @Column(name = "street", length = 48)
     private String street;
 
-    @Column(name = "postcode")
-    private Integer postcode;
+    @Column(name = "city", length = 48)
+    private String city;
 
+    @Column(name = "postcode")
+    private Integer postCode;
+
+    @Column(name = "country", length = 48)
+    private String country;
 
     public Address() {
 
@@ -62,13 +67,31 @@ public class Address {
         this.street = street;
     }
 
-    public Integer getPostcode() {
-        return postcode;
+    public String getCity() {
+        return city;
     }
 
-    public void setPostcode(Integer postcode) {
-        this.postcode = postcode;
+    public void setCity(String city) {
+        this.city = city;
     }
+
+    public Integer getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(Integer postCode) {
+        this.postCode = postCode;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+
 
     public boolean isValid() {
         if (this.id <= 0) {
