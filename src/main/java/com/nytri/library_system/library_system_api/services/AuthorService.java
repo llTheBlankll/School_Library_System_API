@@ -37,8 +37,8 @@ public class AuthorService implements IAuthor {
     }
 
     @Override
-    public void deleteAuthorById(Integer author_id) {
-        authorRepository.deleteById(author_id);
+    public void deleteAuthorById(Integer authorId) {
+        authorRepository.deleteById(authorId);
     }
 
     @Override
@@ -49,12 +49,27 @@ public class AuthorService implements IAuthor {
     }
 
     @Override
-    public Author getAuthorById(Integer author_id) {
-        return authorRepository.findById(author_id).orElse(new Author());
+    public Author getAuthorById(Integer authorId) {
+        return authorRepository.findById(authorId).orElse(new Author());
     }
 
     @Override
     public List<Author> getAllAuthors() {
         return authorRepository.findAll();
+    }
+
+    @Override
+    public List<Author> searchAuthorByFirstName(String firstName) {
+        return authorRepository.findByFirstNameContains(firstName);
+    }
+
+    @Override
+    public List<Author> searchAuthorByLastName(String lastName) {
+        return authorRepository.findByLastNameContains(lastName);
+    }
+
+    @Override
+    public List<Author> searchAuthorByMiddleName(String middleName) {
+        return authorRepository.findByMiddleNameContains(middleName);
     }
 }
