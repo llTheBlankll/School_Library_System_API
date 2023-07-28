@@ -1,12 +1,12 @@
 package com.nytri.library_system.library_system_api.services;
 
 import com.nytri.library_system.library_system_api.entities.Borrower;
+import com.nytri.library_system.library_system_api.entities.Student;
 import com.nytri.library_system.library_system_api.interfaces.IBorrower;
 import com.nytri.library_system.library_system_api.repository.BorrowerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
-
 import java.util.List;
 
 @Service
@@ -53,13 +53,23 @@ public class BorrowerService implements IBorrower {
     }
 
     @Override
-    public List<Borrower> searchBorrowerByStudent(String studentName) {
-        return null;
+    public List<Borrower> searchBorrowerByBookTitle(String bookName) {
+        return borrowerRepository.findByBookBorrowed_Title(bookName);
     }
 
     @Override
-    public List<Borrower> searchBorrowerByBook(String bookName) {
-        return null;
+    public List<Borrower> searchBorrowerByStudent(Student student) {
+        return borrowerRepository.findByStudent(student);
+    }
+
+    @Override
+    public List<Borrower> searchStudentByFirstName(String firstName) {
+        return borrowerRepository.findByStudent_FirstNameContains(firstName);
+    }
+
+    @Override
+    public List<Borrower> searchStudentByLastName(String lastName) {
+        return borrowerRepository.findByStudent_LastNameContains(lastName);
     }
 
     @Override
