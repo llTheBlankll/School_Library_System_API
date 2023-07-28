@@ -2,6 +2,8 @@ package com.nytri.library_system.library_system_api;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -18,29 +20,31 @@ class HttpResponseTest {
     private final String username = "Administrator";
     private final String password = "50925092";
 
-    @Test
-    public void testEmployeeController() {
+    @ParameterizedTest
+    @ValueSource(strings = {"/api/administrator/employees"})
+    void testEmployeeController(String url) {
         ResponseEntity<String> response = template.withBasicAuth(username, password)
-                .getForEntity("/api/administrator/employees/all", String.class);
+                .getForEntity(url, String.class);
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
-    @Test
-    public void testAddressController() {
+    @ParameterizedTest
+    @ValueSource(strings = {"/api/administrator/employees"})
+    void testAddressController(String url) {
         ResponseEntity<String> response = template.withBasicAuth(username, password)
-                .getForEntity("/api/administrator/addresses/all", String.class);
+                .getForEntity(url, String.class);
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
-    @Test
-    public void testStudentController() {
+    @ParameterizedTest
+    void testStudentController() {
         ResponseEntity<String> response = template.withBasicAuth(username, password)
                 .getForEntity("/api/administrator/students/all", String.class);
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
     @Test
-    public void testClassroomController() {
+    void testClassroomController() {
         ResponseEntity<String> response = template.withBasicAuth(username, password)
                 .getForEntity("/api/administrator/classrooms/all", String.class);
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
