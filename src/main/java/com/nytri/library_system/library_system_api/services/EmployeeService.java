@@ -29,7 +29,7 @@ public class EmployeeService implements IEmployee {
             return false;
         }
 
-        return !(employee.getHireDate() == null);
+        return employee.getHireDate() != null;
     }
 
     @Override
@@ -52,8 +52,8 @@ public class EmployeeService implements IEmployee {
     }
 
     @Override
-    public Employee getEmployeeById(Integer employee_id) {
-        return employeeRepository.findById(employee_id).orElse(null);
+    public Employee getEmployeeById(Integer employeeId) {
+        return employeeRepository.findById(employeeId).orElse(null);
     }
 
     @Override

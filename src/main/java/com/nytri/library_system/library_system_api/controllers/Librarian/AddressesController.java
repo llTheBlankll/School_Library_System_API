@@ -57,5 +57,5 @@ public class AddressesController {
         }
 
         logger.info("Address " + address.getId() + " was not updated.");
-    }
+    }   
 }
