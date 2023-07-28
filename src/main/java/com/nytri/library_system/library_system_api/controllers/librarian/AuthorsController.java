@@ -1,4 +1,4 @@
-package com.nytri.library_system.library_system_api.controllers.Librarian;
+package com.nytri.library_system.library_system_api.controllers.librarian;
 
 import com.nytri.library_system.library_system_api.entities.Author;
 import com.nytri.library_system.library_system_api.services.AuthorService;
@@ -27,9 +27,9 @@ public class AuthorsController {
         return authorService.getAllAuthors();
     }
 
-    @GetMapping("/author/{author_id}")
-    public Author getAuthorById(@PathVariable Integer author_id) {
-        return authorService.getAuthorById(author_id);
+    @GetMapping("/author/{authorId}")
+    public Author getAuthorById(@PathVariable Integer authorId) {
+        return authorService.getAuthorById(authorId);
     }
 
     @PutMapping("/add")
@@ -42,9 +42,9 @@ public class AuthorsController {
         logger.info("Author was not added.");
     }
 
-    @DeleteMapping("/delete/{author_id}")
-    public void deleteAuthorById(@PathVariable Integer author_id) {
-        authorService.deleteAuthorById(author_id);
+    @DeleteMapping("/delete/{authorId}")
+    public void deleteAuthorById(@PathVariable Integer authorId) {
+        authorService.deleteAuthorById(authorId);
         logger.info("Author was deleted successfully.");
     }
 
