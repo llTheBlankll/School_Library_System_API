@@ -25,22 +25,18 @@ public class Address {
     @Column(name = "country", length = 48)
     private String country;
 
-    public Address() {
-
-    }
-
     @OneToOne(mappedBy = "studentAddress", cascade = CascadeType.MERGE)
-    private Student student_address;
+    private Student studentAddress;
 
     @OneToOne(mappedBy = "employeeAddress", cascade = CascadeType.MERGE)
-    private Employee employee_address;
+    private Employee employeeAddress;
 
-    public void setEmployee_address(Employee employee_address) {
-        this.employee_address = employee_address;
+    public void setEmployeeAddress(Employee employeeAddress) {
+        this.employeeAddress = employeeAddress;
     }
 
-    public void setStudent_address(Student student_address) {
-        this.student_address = student_address;
+    public void setStudentAddress(Student studentAddress) {
+        this.studentAddress = studentAddress;
     }
 
     public Integer getId() {
