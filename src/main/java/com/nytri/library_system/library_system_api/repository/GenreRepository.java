@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface GenreRepository extends JpaRepository<Genre, Integer> {
-    List<Genre> findByGenreContainsIgnoreCase(String genre);
-    Genre findByGenre(String genreName);
+    List<Genre> findByGenresContainsIgnoreCase(String genre);
+    Genre findByGenres(String genreName);
 }

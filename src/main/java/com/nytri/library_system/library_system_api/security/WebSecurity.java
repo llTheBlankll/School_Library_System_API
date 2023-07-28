@@ -19,18 +19,19 @@ public class WebSecurity {
         return new BCryptPasswordEncoder();
     }
 
+    private enum Privilege { LIBRARIAN, ADMINISTRATOR }
 
     @Bean
-    public UserDetailsManager configure_credentials (BCryptPasswordEncoder encoder) {
+    public UserDetailsManager userDetailsManager(BCryptPasswordEncoder encoder) {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         manager.createUser(User.withUsername("librarian")
                 .password(encoder.encode("snusnu"))
-                .roles("Librarian")
+                .roles(String.valueOf(Privilege.LIBRARIAN))
                 .build());
 
         manager.createUser(User.withUsername("Administrator")
                 .password(encoder.encode("50925092"))
-                .roles("Administrator")
+                .roles(String.valueOf(Privilege.LIBRARIAN))
                 .build());
 
         return manager;

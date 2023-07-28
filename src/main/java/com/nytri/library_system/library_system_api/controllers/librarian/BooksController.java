@@ -1,4 +1,4 @@
-package com.nytri.library_system.library_system_api.controllers.Librarian;
+package com.nytri.library_system.library_system_api.controllers.librarian;
 
 import com.nytri.library_system.library_system_api.entities.Book;
 import com.nytri.library_system.library_system_api.services.BookService;
@@ -26,9 +26,9 @@ public class BooksController {
         return bookService.getAllBooks();
     }
 
-    @GetMapping("/book/{book_id}")
-    public Book getBookById(@PathVariable Integer book_id) {
-        return bookService.getBookById(book_id);
+    @GetMapping("/book/{bookId}")
+    public Book getBookById(@PathVariable Integer bookId) {
+        return bookService.getBookById(bookId);
     }
 
     @PutMapping("/book/add")
@@ -38,7 +38,7 @@ public class BooksController {
             logger.info("Book added successfully");
         }
 
-        logger.info("Book " + book.getTitle() + " was not added");
+        logger.info(String.format("Book %s added successfully", book.getTitle()));
     }
 
     @DeleteMapping("/book/delete")
@@ -48,12 +48,12 @@ public class BooksController {
             logger.info("Book deleted successfully");
         }
 
-        logger.info("Book " + book.getTitle() + " was not deleted");
+        logger.info(String.format("Book %s deleted successfully", book.getTitle()));
     }
 
-    @DeleteMapping("/book/delete/{book_id}")
-    public void deleteBookById(@PathVariable Integer book_id) {
-        bookService.deleteBookById(book_id);
+    @DeleteMapping("/book/delete/{bookId}")
+    public void deleteBookById(@PathVariable Integer bookId) {
+        bookService.deleteBookById(bookId);
         logger.info("Book deleted successfully");
     }
 

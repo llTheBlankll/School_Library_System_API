@@ -9,11 +9,12 @@ public interface IEmployee {
     void updateEmployee(Employee employee);
     void deleteEmployee(Employee employee);
     void deleteEmployeeById(Integer employeeId);
-    Employee getEmployeeById(Integer employee_id);
-    List<Employee> searchEmployeeByLastName(String lastName);
-    List<Employee> searchEmployeeByFirstName(String firstName);
-    List<Employee> searchEmployeeByMiddleName(String middleName);
-    List<Employee> searchEmployeeByJob(String position);
+    Employee getEmployeeById(Integer employeeId);
+    List<Employee> searchEmployeesByLastName(String lastName);
+    List<Employee> searchEmployeesByFirstName(String firstName);
+    List<Employee> searchEmployeesByMiddleName(String middleName);
+    List<Employee> searchEmployeesByJob(String position);
+    List<Employee> searchEmployeesByEmail(String email);
     List<Employee> getAllEmployees();
 
 }

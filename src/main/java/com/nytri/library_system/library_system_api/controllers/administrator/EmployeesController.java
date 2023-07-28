@@ -1,4 +1,4 @@
-package com.nytri.library_system.library_system_api.controllers.Administrator;
+package com.nytri.library_system.library_system_api.controllers.administrator;
 
 import com.nytri.library_system.library_system_api.entities.Employee;
 import com.nytri.library_system.library_system_api.services.EmployeeService;

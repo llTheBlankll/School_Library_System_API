@@ -25,11 +25,30 @@ public class ClassroomService implements IClassroom {
     }
 
     @Override
+    public List<Classroom> searchClassroomBySectionName(String sectionName) {
+        return classroomRepository.findBySectionNameContains(sectionName);
+    }
+
+    @Override
+    public List<Classroom> searchClassroomByAdviserFirstName(String adviserFirstName) {
+        return classroomRepository.findByAdviserFirstName(adviserFirstName);
+    }
+
+    @Override
+    public List<Classroom> searchClassroomByAdviserLastName(String adviserLastName) {
+        return classroomRepository.findByAdviserLastName(adviserLastName);
+    }
+
+    @Override
+    public List<Classroom> searchClassroomAdviserByEmailAddress(String emailAddress) {
+        return classroomRepository.findByAdviserEmail(emailAddress);
+    }
+
+    @Override
     public void addClassroom(Classroom classroom) {
         if (this.process(classroom)) {
             classroomRepository.save(classroom);
         }
-
     }
 
     @Override
@@ -45,8 +64,8 @@ public class ClassroomService implements IClassroom {
     }
 
     @Override
-    public Classroom getClassroomById(Integer classroom_id) {
-        return classroomRepository.findById(classroom_id).orElse(new Classroom());
+    public Classroom getClassroomById(Integer classroomId) {
+        return classroomRepository.findById(classroomId).orElse(new Classroom());
     }
 
     @Override

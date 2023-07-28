@@ -10,7 +10,7 @@ public class Genre {
     private Integer id;
 
     @Column(name = "genre")
-    private String genre;
+    private String genres;
 
     @OneToOne(mappedBy = "bookGenre")
     private Book bookGenre;
@@ -31,12 +31,12 @@ public class Genre {
         this.id = id;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getGenres() {
+        return genres;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setGenres(String genres) {
+        this.genres = genres;
     }
 
 }

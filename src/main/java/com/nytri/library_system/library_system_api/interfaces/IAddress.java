@@ -13,6 +13,6 @@ public interface IAddress {
     List<Address> searchAddressByCity(String cityName);
     List<Address> searchAddressByCountry(String countryName);
     List<Address> searchAddressByPostCode(Integer postCode);
-    Address getAddressById(Integer address_id);
+    Address getAddressById(Integer addressId);
     List<Address> getAllAddresses();
 }

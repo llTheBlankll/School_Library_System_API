@@ -10,6 +10,8 @@ import java.util.List;
 @Repository
 public interface BorrowerRepository extends JpaRepository<Borrower, Integer> {
 
-    Borrower findByStudent(Student studentId);
-    List<Borrower> findByIssuedByContains(int employeeId);
+    List<Borrower> findByStudent(Student student);
+    List<Borrower> findByStudent_FirstNameContains(String firstName);
+    List<Borrower> findByStudent_LastNameContains(String firstName);
+    List<Borrower> findByBookBorrowed_Title(String bookTitle);
 }

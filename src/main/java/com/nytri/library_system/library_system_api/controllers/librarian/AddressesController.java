@@ -1,4 +1,4 @@
-package com.nytri.library_system.library_system_api.controllers.Librarian;
+package com.nytri.library_system.library_system_api.controllers.librarian;
 
 import com.nytri.library_system.library_system_api.entities.Address;
 import com.nytri.library_system.library_system_api.services.AddressService;
@@ -43,19 +43,19 @@ public class AddressesController {
     public void deleteAddress(@RequestBody Address address) {
         if (addressService.process(address)) {
             addressService.deleteAddress(address);
-            logger.info("Address " + address.getId() + " deleted.");
+            logger.info(String.format("Address %s deleted", address));
         }
 
-        logger.info("Address " + address.getId() + " was not deleted.");
+        logger.info(String.format("Address %s was not deleted", address));
     }
 
     @PostMapping("/address/update")
     public void updateAddress(@RequestBody Address address) {
         if (addressService.process(address)) {
             addressService.updateAddress(address);
-            logger.info("Address " + address.getId() + " updated.");
+            logger.info(String.format("Address %s was updated", address));
         }
 
-        logger.info("Address " + address.getId() + " was not updated.");
+        logger.info(String.format("Address %s was not updated", address));
     }   
 }

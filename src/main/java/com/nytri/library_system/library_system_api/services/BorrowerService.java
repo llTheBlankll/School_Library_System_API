@@ -1,12 +1,12 @@
 package com.nytri.library_system.library_system_api.services;
 
 import com.nytri.library_system.library_system_api.entities.Borrower;
+import com.nytri.library_system.library_system_api.entities.Student;
 import com.nytri.library_system.library_system_api.interfaces.IBorrower;
 import com.nytri.library_system.library_system_api.repository.BorrowerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
-
 import java.util.List;
 
 @Service
@@ -29,42 +29,52 @@ public class BorrowerService implements IBorrower {
     }
 
     @Override
-    public void addBorrower(Borrower Borrower) {
-        if (this.process(Borrower)) {
-            borrowerRepository.save(Borrower);
+    public void addBorrower(Borrower borrower) {
+        if (this.process(borrower)) {
+            borrowerRepository.save(borrower);
         }
     }
 
     @Override
-    public void deleteBorrower(Borrower Borrower) {
-        borrowerRepository.delete(Borrower);
+    public void deleteBorrower(Borrower borrower) {
+        borrowerRepository.delete(borrower);
     }
 
     @Override
-    public void deleteBorrowerById(Integer borrower_id) {
-        borrowerRepository.deleteById(borrower_id);
+    public void deleteBorrowerById(Integer borrowerId) {
+        borrowerRepository.deleteById(borrowerId);
     }
 
     @Override
-    public void updateBorrower(Borrower Borrower) {
-        if (this.process(Borrower)) {
-            borrowerRepository.save(Borrower);
+    public void updateBorrower(Borrower borrower) {
+        if (this.process(borrower)) {
+            borrowerRepository.save(borrower);
         }
     }
 
     @Override
-    public List<Borrower> searchBorrowerByStudent(String student_name) {
-        return null;
+    public List<Borrower> searchBorrowerByBookTitle(String bookName) {
+        return borrowerRepository.findByBookBorrowed_Title(bookName);
     }
 
     @Override
-    public List<Borrower> searchBorrowerByBook(String book_name) {
-        return null;
+    public List<Borrower> searchBorrowerByStudent(Student student) {
+        return borrowerRepository.findByStudent(student);
     }
 
     @Override
-    public Borrower getBorrowerById(Integer borrower_id) {
-        return borrowerRepository.findById(borrower_id).orElse(new Borrower());
+    public List<Borrower> searchStudentByFirstName(String firstName) {
+        return borrowerRepository.findByStudent_FirstNameContains(firstName);
+    }
+
+    @Override
+    public List<Borrower> searchStudentByLastName(String lastName) {
+        return borrowerRepository.findByStudent_LastNameContains(lastName);
+    }
+
+    @Override
+    public Borrower getBorrowerById(Integer borrowerId) {
+        return borrowerRepository.findById(borrowerId).orElse(new Borrower());
     }
 
     @Override

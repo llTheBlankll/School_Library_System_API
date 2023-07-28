@@ -1,4 +1,4 @@
-package com.nytri.library_system.library_system_api.controllers.Librarian;
+package com.nytri.library_system.library_system_api.controllers.librarian;
 
 import com.nytri.library_system.library_system_api.entities.Borrower;
 import com.nytri.library_system.library_system_api.services.BorrowerService;
@@ -27,9 +27,9 @@ public class BorrowersController {
         return borrowerService.getAllBorrowers();
     }
 
-    @GetMapping("/borrower/{borrower_id}")
-    public Borrower getBorrowerById(@PathVariable Integer borrower_id) {
-        return borrowerService.getBorrowerById(borrower_id);
+    @GetMapping("/borrower/{borrowerId}")
+    public Borrower getBorrowerById(@PathVariable Integer borrowerId) {
+        return borrowerService.getBorrowerById(borrowerId);
     }
 
     @PutMapping("/add")
@@ -52,9 +52,9 @@ public class BorrowersController {
         logger.info("Borrower " + borrower.getId() + " was not deleted");
     }
 
-    @DeleteMapping("/delete/{borrower_id}")
-    public void deleteBorrowerById(@PathVariable Integer borrower_id) {
-        borrowerService.deleteBorrowerById(borrower_id);
+    @DeleteMapping("/delete/{borrowerId}")
+    public void deleteBorrowerById(@PathVariable Integer borrowerId) {
+        borrowerService.deleteBorrowerById(borrowerId);
         logger.info("Borrower deleted successfully");
     }
 
