@@ -62,6 +62,31 @@ public class EmployeeService implements IEmployee {
     }
 
     @Override
+    public List<Employee> searchEmployeesByLastName(String lastName) {
+        return employeeRepository.findByLastNameContains(lastName);
+    }
+
+    @Override
+    public List<Employee> searchEmployeesByFirstName(String firstName) {
+        return employeeRepository.findByFirstNameContains(firstName);
+    }
+
+    @Override
+    public List<Employee> searchEmployeesByMiddleName(String middleName) {
+        return employeeRepository.findByMiddleNameContains(middleName);
+    }
+
+    @Override
+    public List<Employee> searchEmployeesByJob(String position) {
+        return employeeRepository.findByJobTitle(position);
+    }
+
+    @Override
+    public List<Employee> searchEmployeesByEmail(String email) {
+        return employeeRepository.findByEmailContains(email);
+    }
+
+    @Override
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
     }
