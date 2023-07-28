@@ -22,7 +22,7 @@ public class WebSecurity {
     private enum Privilege { LIBRARIAN, ADMINISTRATOR }
 
     @Bean
-    public UserDetailsManager(BCryptPasswordEncoder encoder) {
+    public UserDetailsManager userDetailsManager(BCryptPasswordEncoder encoder) {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         manager.createUser(User.withUsername("librarian")
                 .password(encoder.encode("snusnu"))
@@ -31,7 +31,7 @@ public class WebSecurity {
 
         manager.createUser(User.withUsername("Administrator")
                 .password(encoder.encode("50925092"))
-                .roles(String.valueOf(Privilege.ADMINISTRATOR)
+                .roles(String.valueOf(Privilege.LIBRARIAN))
                 .build());
 
         return manager;
