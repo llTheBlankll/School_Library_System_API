@@ -9,7 +9,9 @@ public interface IClassroom {
     void updateClassroom(Classroom classroom);
     void deleteClassroom(Classroom classroom);
     List<Classroom> searchClassroomBySectionName(String sectionName);
-    List<Classroom> searchClassroomByAdviser(String adviser_name);
-    Classroom getClassroomById(Integer classroom_id);
+    List<Classroom> searchClassroomByAdviserFirstName(String adviserFirstName);
+    List<Classroom> searchClassroomByAdviserLastName(String adviserLastName);
+    List<Classroom> searchClassroomAdviserByEmailAddress(String emailAddress);
+    Classroom getClassroomById(Integer classroomId);
     List<Classroom> getAllClassrooms();
 }

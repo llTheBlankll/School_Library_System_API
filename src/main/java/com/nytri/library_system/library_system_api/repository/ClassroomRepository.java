@@ -10,4 +10,7 @@ import java.util.List;
 public interface ClassroomRepository extends JpaRepository<Classroom, Integer> {
 
     List<Classroom> findBySectionNameContains (String sectionName );
+    List<Classroom> findByAdviserFirstName(String firstName);
+    List<Classroom> findByAdviserLastName(String lastName);
+    List<Classroom> findByAdviserEmail(String email);
 }
