@@ -14,5 +14,4 @@ public interface BorrowerRepository extends JpaRepository<Borrower, Integer> {
     List<Borrower> findByStudent_FirstNameContains(String firstName);
     List<Borrower> findByStudent_LastNameContains(String firstName);
     List<Borrower> findByBookBorrowed_Title(String bookTitle);
-    List<Borrower> findByIssuedByContains(int employeeId);
 }

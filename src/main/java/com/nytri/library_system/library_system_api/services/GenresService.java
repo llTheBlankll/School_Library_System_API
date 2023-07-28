@@ -61,7 +61,7 @@ public class GenresService implements IGenre {
 
     @Override
     public List<Genre> findGenresByName(String genre) {
-        return genreRepository.findByGenreContainsIgnoreCase(genre);
+        return genreRepository.findByGenresContainsIgnoreCase(genre);
     }
 
 

@@ -88,7 +88,7 @@ public class BookService implements IBook {
 
     @Override
     public List<Book> searchBookWithGenreName(String genreName) {
-        return bookRepository.findByBookGenreContains(genreRepository.findByGenre(genreName).getGenres());
+        return bookRepository.findByBookGenreContains(genreRepository.findByGenres(genreName).getGenres());
     }
 
     @Override
