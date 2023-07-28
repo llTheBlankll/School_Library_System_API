@@ -53,6 +53,16 @@ public class BorrowerService implements IBorrower {
     }
 
     @Override
+    public List<Borrower> searchBorrowerByStudent(String student_name) {
+        return null;
+    }
+
+    @Override
+    public List<Borrower> searchBorrowerByBook(String book_name) {
+        return null;
+    }
+
+    @Override
     public Borrower getBorrowerById(Integer borrower_id) {
         return borrowerRepository.findById(borrower_id).orElse(new Borrower());
     }
@@ -61,4 +71,6 @@ public class BorrowerService implements IBorrower {
     public List<Borrower> getAllBorrowers() {
         return borrowerRepository.findAll();
     }
+
+
 }

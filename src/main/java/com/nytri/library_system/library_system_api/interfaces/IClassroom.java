@@ -8,6 +8,8 @@ public interface IClassroom {
     void addClassroom(Classroom classroom);
     void updateClassroom(Classroom classroom);
     void deleteClassroom(Classroom classroom);
+    List<Classroom> searchClassroomBySectionName(String sectionName);
+    List<Classroom> searchClassroomByAdviser(String adviser_name);
     Classroom getClassroomById(Integer classroom_id);
     List<Classroom> getAllClassrooms();
 }

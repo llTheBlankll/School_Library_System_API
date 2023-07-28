@@ -9,6 +9,7 @@ public interface IGenre {
     void updateGenre(Genre genre);
     void deleteGenre(Genre genre);
     void deleteGenreById(Integer genre_id);
+    List<Genre> searchGenreByName(String name);
     Genre getGenreById(Integer genre_id);
     List<Genre> getAllGenres();
     List<Genre> findGenresByName(String genre);

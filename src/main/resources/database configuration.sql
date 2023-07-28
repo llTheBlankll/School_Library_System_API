@@ -1,3 +1,5 @@
+# noinspection SqlResolveForFile
+
 /*
 IMPORTANT NOTE:
 Classrooms and Addresses data must be filled in before creating new table students data.
