@@ -9,7 +9,9 @@ import java.util.List;
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Integer> {
 
-    Student findByEmail ( String email );
+    List<Student> findByEmailContains ( String email );
     List<Student> findByFirstNameContains (String firstName);
     List<Student> findByLastNameContains ( String lastName );
+    List<Student> findByMiddleNameContains (String middleName);
+    List<Student> findByPhoneContains(String phoneNumber);
 }

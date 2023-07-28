@@ -56,4 +56,29 @@ public class StudentService implements IStudent {
         // Return all students' information.
         return studentRepository.findAll();
     }
+
+    @Override
+    public List<Student> getStudentByLastName(String lastName) {
+        return studentRepository.findByLastNameContains(lastName);
+    }
+
+    @Override
+    public List<Student> getStudentByFirstName(String firstName) {
+        return studentRepository.findByFirstNameContains(firstName);
+    }
+
+    @Override
+    public List<Student> getStudentByMiddleName(String middleName) {
+        return studentRepository.findByMiddleNameContains(middleName);
+    }
+
+    @Override
+    public List<Student> getStudentByEmailAddress(String emailAddress) {
+        return studentRepository.findByEmailContains(emailAddress);
+    }
+
+    @Override
+    public List<Student> getStudentByPhoneNumber(String phoneNumber) {
+        return studentRepository.findByPhoneContains(phoneNumber);
+    }
 }
