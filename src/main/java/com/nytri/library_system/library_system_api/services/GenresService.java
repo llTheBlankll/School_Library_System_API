@@ -22,7 +22,7 @@ public class GenresService implements IGenre {
 
     public boolean process(Genre genre) {
         // Returns true if it is Empty, false otherwise.
-        return !genre.getGenre().isEmpty();
+        return !genre.getGenres().isEmpty();
     }
 
     @Override
@@ -45,13 +45,13 @@ public class GenresService implements IGenre {
     }
 
     @Override
-    public void deleteGenreById(Integer genre_id) {
-        genreRepository.deleteById(genre_id);
+    public void deleteGenreById(Integer genreId) {
+        genreRepository.deleteById(genreId);
     }
 
     @Override
-    public Genre getGenreById(Integer genre_id) {
-        return genreRepository.findById(genre_id).orElse(new Genre());
+    public Genre getGenreById(Integer genreId) {
+        return genreRepository.findById(genreId).orElse(new Genre());
     }
 
     @Override

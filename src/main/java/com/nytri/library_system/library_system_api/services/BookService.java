@@ -45,8 +45,8 @@ public class BookService implements IBook {
     }
 
     @Override
-    public void deleteBookById(Integer book_id) {
-        bookRepository.deleteById(book_id);
+    public void deleteBookById(Integer bookId) {
+        bookRepository.deleteById(bookId);
     }
 
     @Override
@@ -88,7 +88,7 @@ public class BookService implements IBook {
 
     @Override
     public List<Book> searchBookWithGenreName(String genreName) {
-        return bookRepository.findByBookGenreContains(genreRepository.findByGenre(genreName).getGenre());
+        return bookRepository.findByBookGenreContains(genreRepository.findByGenre(genreName).getGenres());
     }
 
     @Override

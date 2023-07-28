@@ -29,42 +29,42 @@ public class BorrowerService implements IBorrower {
     }
 
     @Override
-    public void addBorrower(Borrower Borrower) {
-        if (this.process(Borrower)) {
-            borrowerRepository.save(Borrower);
+    public void addBorrower(Borrower borrower) {
+        if (this.process(borrower)) {
+            borrowerRepository.save(borrower);
         }
     }
 
     @Override
-    public void deleteBorrower(Borrower Borrower) {
-        borrowerRepository.delete(Borrower);
+    public void deleteBorrower(Borrower borrower) {
+        borrowerRepository.delete(borrower);
     }
 
     @Override
-    public void deleteBorrowerById(Integer borrower_id) {
-        borrowerRepository.deleteById(borrower_id);
+    public void deleteBorrowerById(Integer borrowerId) {
+        borrowerRepository.deleteById(borrowerId);
     }
 
     @Override
-    public void updateBorrower(Borrower Borrower) {
-        if (this.process(Borrower)) {
-            borrowerRepository.save(Borrower);
+    public void updateBorrower(Borrower borrower) {
+        if (this.process(borrower)) {
+            borrowerRepository.save(borrower);
         }
     }
 
     @Override
-    public List<Borrower> searchBorrowerByStudent(String student_name) {
+    public List<Borrower> searchBorrowerByStudent(String studentName) {
         return null;
     }
 
     @Override
-    public List<Borrower> searchBorrowerByBook(String book_name) {
+    public List<Borrower> searchBorrowerByBook(String bookName) {
         return null;
     }
 
     @Override
-    public Borrower getBorrowerById(Integer borrower_id) {
-        return borrowerRepository.findById(borrower_id).orElse(new Borrower());
+    public Borrower getBorrowerById(Integer borrowerId) {
+        return borrowerRepository.findById(borrowerId).orElse(new Borrower());
     }
 
     @Override

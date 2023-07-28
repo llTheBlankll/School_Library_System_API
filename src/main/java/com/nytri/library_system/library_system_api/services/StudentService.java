@@ -33,9 +33,9 @@ public class StudentService implements IStudent {
     }
 
     @Override
-    public void deleteStudent(Integer student_id) {
+    public void deleteStudent(Integer studentId) {
         // If returns true, the data provided is valid.
-        studentRepository.deleteById(student_id);
+        studentRepository.deleteById(studentId);
     }
 
     @Override
@@ -47,8 +47,8 @@ public class StudentService implements IStudent {
     }
 
     @Override
-    public Student getStudentById(Integer student_id) {
-        return studentRepository.findById(student_id).orElse(new Student());
+    public Student getStudentById(Integer studentId) {
+        return studentRepository.findById(studentId).orElse(new Student());
     }
 
     @Override

@@ -9,7 +9,7 @@ public interface IEmployee {
     void updateEmployee(Employee employee);
     void deleteEmployee(Employee employee);
     void deleteEmployeeById(Integer employeeId);
-    Employee getEmployeeById(Integer employee_id);
+    Employee getEmployeeById(Integer employeeId);
     List<Employee> searchEmployeeByLastName(String lastName);
     List<Employee> searchEmployeeByFirstName(String firstName);
     List<Employee> searchEmployeeByMiddleName(String middleName);

@@ -8,7 +8,7 @@ import java.util.List;
 public interface IBook {
     void addBook(Book book);
     void deleteBook(Book book);
-    void deleteBookById(Integer book_id);
+    void deleteBookById(Integer bookId);
     void updateBook(Book book);
     List<Book> searchBookByTitle(String title);
     List<Book> searchBookByAuthorLastName(String authorLastName);
