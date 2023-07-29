@@ -1,6 +1,5 @@
 package com.nytri.library_system.library_system_api;
 
-import org.junit.Ignore;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.test.context.ContextConfiguration;
 
 @ContextConfiguration(classes = LibrarySystemApiApplication.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@Ignore
 public class TestControllerSecurityFilterChain {
 
     @Autowired
