@@ -1,5 +1,6 @@
 package com.nytri.library_system.library_system_api.controllers.librarian;
 
+import com.nytri.library_system.library_system_api.entities.Author;
 import com.nytri.library_system.library_system_api.entities.Book;
 import com.nytri.library_system.library_system_api.services.BookService;
 import org.slf4j.Logger;
@@ -26,12 +27,12 @@ public class BooksController {
         return bookService.getAllBooks();
     }
 
-    @GetMapping("/book/{bookId}")
+    @GetMapping("/{bookId}")
     public Book getBookById(@PathVariable Integer bookId) {
         return bookService.getBookById(bookId);
     }
 
-    @PutMapping("/book/add")
+    @PutMapping("/add")
     public void addBook(@RequestBody Book book) {
         if (bookService.process(book)) {
             bookService.addBook(book);
@@ -41,7 +42,7 @@ public class BooksController {
         logger.info(String.format("Book %s added successfully", book.getTitle()));
     }
 
-    @DeleteMapping("/book/delete")
+    @DeleteMapping("/delete")
     public void deleteBook(@RequestBody Book book) {
         if (bookService.process(book)) {
             bookService.deleteBook(book);
@@ -51,13 +52,13 @@ public class BooksController {
         logger.info(String.format("Book %s deleted successfully", book.getTitle()));
     }
 
-    @DeleteMapping("/book/delete/{bookId}")
+    @DeleteMapping("/delete/{bookId}")
     public void deleteBookById(@PathVariable Integer bookId) {
         bookService.deleteBookById(bookId);
         logger.info("Book deleted successfully");
     }
 
-    @PostMapping("/book/update")
+    @PostMapping("/update")
     public void updateBook(@RequestBody Book book) {
         if (bookService.process(book)) {
             bookService.updateBook(book);
@@ -65,5 +66,41 @@ public class BooksController {
         }
 
         logger.info("Book " + book.getTitle() + " was not updated");
+    }
+
+    // SEARCH METHODS //
+    @GetMapping("/title")
+    public List<Book> searchBookByTitle(@RequestParam String search) {
+        return bookService.searchBookByTitle(search);
+    }
+
+    @GetMapping("/lastName")
+    public List<Book> searchBookByAuthorLastName(@RequestParam String search) {
+        return bookService.searchBookByAuthorLastName(search);
+    }
+
+    @GetMapping("/middleName")
+    public List<Book> searchBookByAuthorMiddleName(@RequestParam String search) {
+        return bookService.searchBookByAuthorMiddleName(search);
+    }
+
+    @GetMapping("/firstName")
+    public List<Book> searchBookByAuthorFirstName(@RequestParam String search) {
+        return bookService.searchBookByAuthorFirstName(search);
+    }
+
+    @GetMapping("/bookGenre")
+    public List<Book> searchBookByGenreName(@RequestParam String search) {
+        return bookService.searchBookByGenreName(search);
+    }
+
+    @GetMapping("/author")
+    public List<Book> searchBookByAuthor(@RequestBody Author author) {
+        return bookService.searchBookByAuthor(author);
+    }
+
+    @GetMapping("/language")
+    public List<Book> searchBookByLanguage(@RequestParam String search) {
+        return bookService.searchBookByLanguage(search);
     }
 }

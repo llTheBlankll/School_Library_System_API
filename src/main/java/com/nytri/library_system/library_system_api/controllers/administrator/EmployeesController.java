@@ -67,4 +67,30 @@ public class EmployeesController {
     public Employee getEmployeeById(@PathVariable int id) {
         return employeeService.getEmployeeById(id);
     }
+
+    // SEARCH METHODS //
+    @GetMapping("/lastName")
+    public List<Employee> searchEmployeesByLastName(@RequestParam String search) {
+        return employeeService.searchEmployeesByLastName(search);
+    }
+
+    @GetMapping("/firstName")
+    public List<Employee> searchEmployeesByFirstName(@RequestParam String search) {
+        return employeeService.searchEmployeesByFirstName(search);
+    }
+
+    @GetMapping("/middleName")
+    public List<Employee> searchEmployeesByMiddleName(@RequestParam String search) {
+        return employeeService.searchEmployeesByMiddleName(search);
+    }
+
+    @GetMapping("/jobTitle")
+    public List<Employee> searchEmployeesByJob(@RequestParam String search) {
+        return employeeService.searchEmployeesByJob(search);
+    }
+
+    @GetMapping("/email")
+    public List<Employee> searchEmployeesByEmail(@RequestParam String search) {
+        return employeeService.searchEmployeesByEmail(search);
+    }
 }

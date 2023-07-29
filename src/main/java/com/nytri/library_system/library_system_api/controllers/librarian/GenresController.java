@@ -72,9 +72,11 @@ public class GenresController {
         logger.info("Genre " + id + " was not deleted");
     }
 
-    @GetMapping("/search/name/{name}")
-    public List<Genre> searchGenres(@PathVariable String name) {
-        logger.info("Searching for genre: " + name);
-        return genresService.findGenresByName(name);
+    // SEARCH METHOD //
+
+    @GetMapping("/genre")
+    public List<Genre> searchGenres(@RequestParam String search) {
+        logger.info("Searching for genre: " + search);
+        return genresService.findGenresByName(search);
     }
 }
