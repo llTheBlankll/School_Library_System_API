@@ -61,4 +61,30 @@ public class StudentsController {
 
         logger.info("Student " + student.getId() + " updated.");
     }
+
+    // SEARCH METHODS //
+    @GetMapping("/lastName")
+    public List<Student> getStudentByLastName(@RequestParam String search) {
+        return studentService.getStudentByLastName(search);
+    }
+
+    @GetMapping("/firstName")
+    public List<Student> getStudentByFirstName(@RequestParam String search) {
+        return studentService.getStudentByFirstName(search);
+    }
+
+    @GetMapping("/middleName")
+    public List<Student> getStudentByMiddleName(@RequestParam String search) {
+        return studentService.getStudentByMiddleName(search);
+    }
+
+    @GetMapping("/email")
+    public List<Student> getStudentByEmailAddress(@RequestParam String search) {
+        return studentService.getStudentByEmailAddress(search);
+    }
+
+    @GetMapping("/phone")
+    public List<Student> getStudentByPhoneNumber(@RequestParam String search) {
+        return studentService.getStudentByPhoneNumber(search);
+    }
 }

@@ -1,6 +1,7 @@
 package com.nytri.library_system.library_system_api.controllers.librarian;
 
 import com.nytri.library_system.library_system_api.entities.Borrower;
+import com.nytri.library_system.library_system_api.entities.Student;
 import com.nytri.library_system.library_system_api.services.BorrowerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,5 +67,26 @@ public class BorrowersController {
         }
 
         logger.info("Borrower " + borrower.getId() + " was not updated");
+    }
+
+    // SEARCH METHODS //
+    @GetMapping("/bookTitle")
+    public List<Borrower> searchBorrowerByBookTitle(@RequestParam String search) {
+        return borrowerService.searchBorrowerByBookTitle(search);
+    }
+
+    @GetMapping("/firstName")
+    public List<Borrower> searchStudentByFirstName(@RequestParam String search) {
+        return borrowerService.searchStudentByFirstName(search);
+    }
+
+    @GetMapping("/lastName")
+    public List<Borrower> searchStudentByLastName(@RequestParam String search) {
+        return borrowerService.searchStudentByLastName(search);
+    }
+
+    @GetMapping("/student")
+    public List<Borrower> searchBorrowerByStudent(@RequestBody Student student) {
+        return borrowerService.searchBorrowerByStudent(student);
     }
 }

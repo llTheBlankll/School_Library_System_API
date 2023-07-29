@@ -32,14 +32,14 @@ public class AddressesController {
         return addressService.getAddressById(id);
     }
 
-    @PutMapping("/address/add")
+    @PutMapping("/add")
     public void addAddress(@RequestBody Address address) {
         if (addressService.process(address)) {
             addressService.addAddress(address);
         }
     }
 
-    @DeleteMapping("/address/delete")
+    @DeleteMapping("/delete")
     public void deleteAddress(@RequestBody Address address) {
         if (addressService.process(address)) {
             addressService.deleteAddress(address);
@@ -49,7 +49,7 @@ public class AddressesController {
         logger.info(String.format("Address %s was not deleted", address));
     }
 
-    @PostMapping("/address/update")
+    @PostMapping("/update")
     public void updateAddress(@RequestBody Address address) {
         if (addressService.process(address)) {
             addressService.updateAddress(address);
@@ -57,5 +57,31 @@ public class AddressesController {
         }
 
         logger.info(String.format("Address %s was not updated", address));
-    }   
+    }
+
+    // SEARCH METHODS //
+    @GetMapping("/region")
+    public List<Address> searchAddressByRegion(@RequestParam String search) {
+        return addressService.searchAddressByRegion(search);
+    }
+
+    @GetMapping("/street")
+    public List<Address> searchAddressByStreet(@RequestParam String search) {
+        return addressService.searchAddressByStreet(search);
+    }
+
+    @GetMapping("/city")
+    public List<Address> searchAddressByCity(@RequestParam String search) {
+        return addressService.searchAddressByCity(search);
+    }
+
+    @GetMapping("/country")
+    public List<Address> searchAddressByCountry(@RequestParam String search) {
+        return addressService.searchAddressByCountry(search);
+    }
+
+    @GetMapping("/postCode")
+    public List<Address> searchAddressByPostCode(@RequestParam Integer search) {
+        return addressService.searchAddressByPostCode(search);
+    }
 }

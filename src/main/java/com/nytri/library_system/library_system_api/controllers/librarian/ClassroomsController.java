@@ -49,4 +49,25 @@ public class ClassroomsController {
     public Classroom getClassroomById(@PathVariable int id) {
         return classroomService.getClassroomById(id);
     }
+
+    // SEARCH METHODS //
+    @GetMapping("/sectionName")
+    public List<Classroom> searchClassroomBySectionName(@RequestParam String search) {
+        return classroomService.searchClassroomBySectionName(search);
+    }
+
+    @GetMapping("/firstName")
+    public List<Classroom> searchClassroomByAdviserFirstName(@RequestParam String search) {
+        return classroomService.searchClassroomByAdviserFirstName(search);
+    }
+
+    @GetMapping("/lastName")
+    public List<Classroom> searchClassroomByAdviserLastName(@RequestParam String search) {
+        return classroomService.searchClassroomByAdviserLastName(search);
+    }
+
+    @GetMapping("/email")
+    public List<Classroom> searchClassroomAdviserByEmailAddress(@RequestParam String search) {
+        return classroomService.searchClassroomAdviserByEmailAddress(search);
+    }
 }

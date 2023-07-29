@@ -59,4 +59,20 @@ public class AuthorsController {
         authorService.updateAuthor(author);
         logger.info("Author was updated successfully.");
     }
+
+    // SEARCH METHODS //
+    @GetMapping("/firstName")
+    public List<Author> searchAuthorByFirstName(String search) {
+        return authorService.searchAuthorByFirstName(search);
+    }
+
+    @GetMapping("/lastName")
+    public List<Author> searchAuthorByLastName(String search) {
+        return authorService.searchAuthorByLastName(search);
+    }
+
+    @GetMapping("/middleName")
+    public List<Author> searchAuthorByMiddleName(String search) {
+        return authorService.searchAuthorByMiddleName(search);
+    }
 }
