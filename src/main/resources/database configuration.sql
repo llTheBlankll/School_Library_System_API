@@ -98,13 +98,17 @@ CREATE TABLE IF NOT EXISTS borrower
     FOREIGN KEY (book) REFERENCES books (book_id)
 );
 
-INSERT INTO classrooms (classroom_id, adviser, section_name)
-VALUES (308, 125, "Purity");
-
+-- Dummy Data
 INSERT INTO addresses (region, street, postcode)
 VALUES ("National Capital Region", "Fortune Drive, Canumay East", 1447);
 
--- Dummy Data
+INSERT INTO employees (employee_id, address_id, first_name, last_name, middle_name, email, phone, job_title, hire_date,
+                       salary)
+VALUES (125, 1, "Mary Grace", "Yap", "", "marygrace.yap@gmail.com", "Unknown", "Teacher", "2020-12-15", 20000);
+
+INSERT INTO classrooms (classroom_id, adviser, section_name)
+VALUES (308, 125, "Purity");
+
 INSERT INTO students (student_id, student_address, classroom_id, first_name, last_name, middle_name, email, phone) VALUES (10113331, 1, 308, "Vince Angelo", "Batecan", "Olarte", "vbatecan@gmail.com", 09998216556);
 
 INSERT INTO genres (genre)
@@ -116,6 +120,4 @@ VALUES ("Vince Angelo", "Batecan", "Olarte");
 INSERT INTO books (book_genre, author, title, description, language, total_pages, published_date, copies)
 VALUES (1, 1, "Introduction to Programming", "The Introduction to Programming", "English", 100, "2006-11-2", 100);
 
-INSERT INTO employees (employee_id, address_id, first_name, last_name, middle_name, email, phone, job_title, hire_date,
-                       salary)
-VALUES (125, 1, "Mary Grace", "Yap", "", "marygrace.yap@gmail.com", "Unknown", "Teacher", "2020-12-15", 20000);
+
